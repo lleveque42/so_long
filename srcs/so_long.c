@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:38:34 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/17 18:16:49 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/18 14:46:54 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@
 int	main(int ac, char **av)
 {
 	t_mlx	mlx;
-	(void)ac;
-	(void)av;
 
-	parse_map(&mlx);
+	if (ac != 2)
+		return (no_input());
+	parse_map(&mlx, av[1]);
 	// init_window(&mlx);
 	// mlx_put_image_to_window(mlx.ptr, mlx.win, mlx.img, mlx.vector.x, mlx.vector.y);
 	// mlx_key_hook(mlx.win, &keyhook, &mlx);

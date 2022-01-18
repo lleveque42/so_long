@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 12:11:30 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/17 18:07:40 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/13 14:37:03 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# define BUFFER_SIZE 1
 
 char	*get_next_line(int fd);
 char	*str_to_out(char *str);
