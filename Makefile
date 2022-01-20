@@ -6,12 +6,15 @@
 #    By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 16:38:44 by lleveque          #+#    #+#              #
-#    Updated: 2022/01/18 12:20:35 by lleveque         ###   ########.fr        #
+#    Updated: 2022/01/20 18:18:45 by lleveque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= $(addprefix srcs/, so_long.c errors/map_errors.c parsing/parse_map.c \
-			parsing/parse_map_utils.c game/moves.c)
+SRCS	= $(addprefix srcs/, so_long.c errors/map_errors.c \
+			errors/errors.c parsing/parse_map.c \
+			parsing/parse_map_checker.c parsing/parse_map_utils.c \
+			game/init_game.c game/moves.c game/moves_utils.c game/input.c \
+			free/free_map.c)
 
 SRCS_GNL	= $(addprefix gnl/, get_next_line_utils.c get_next_line.c)
 

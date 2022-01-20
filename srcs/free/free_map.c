@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_map_utils.c                                  :+:      :+:    :+:   */
+/*   free_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 14:22:35 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/20 14:23:05 by lleveque         ###   ########.fr       */
+/*   Created: 2022/01/20 12:05:14 by lleveque          #+#    #+#             */
+/*   Updated: 2022/01/20 12:08:38 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../so_long.h"
+#include "../so_long.h"
 
-int	get_width(char *s)
+void	free_map(t_mlx *mlx)
 {
 	int	i;
 
 	i = 0;
-	while (s[i])
+	while (mlx->map[i])
+	{
+		free(mlx->map[i]);
 		i++;
-	return (i);
+	}
+	free(mlx->map);
 }

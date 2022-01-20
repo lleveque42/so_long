@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 17:31:42 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/18 18:33:08 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/20 17:46:41 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,30 @@ int	parse_input(t_mlx *mlx, char *input)
 	while (i <= mlx->height)
 	{
 		mlx->map[i] = get_next_line(fd);
-		printf("%s\n", mlx->map[i]);
-		free(mlx->map[i]);
 		i++;
 	}
-	free(mlx->map);
 	return (0);
 }
 
-// int	check_map(t_mlx *mlx, char *input)
+int	check_map(t_mlx *mlx)
+{
+	int	i;
+	int	previous_width;
+
+	i = 0;
+	previous_width = 0;
+	while (mlx->map[i])
+	{
+		mlx->width = get_width(mlx->map[i]);
+		if (mlx->width != previous_width && i != 0)
+			return (not_rectangular());
+		if (check_char(mlx->map[i], mlx))
+			return (not_good_char());
+		previous_width = mlx->width;
+		i++;
+	}
+	return (0);
+}
 
 int	parse_map(t_mlx *mlx, char *input)
 {
@@ -62,8 +77,12 @@ int	parse_map(t_mlx *mlx, char *input)
 		return (wrong_input());
 	if (!get_map_height_and_width(mlx, input))
 		return (not_valid_map());
-	if (parse_input(mlx, input))
+	parse_input(mlx, input);
+	if (check_map(mlx))
 		return (1);
+	if (count_letters(mlx))
+		return (not_good_char());
+	if (check_walls(mlx))
+		return (not_surrounded());
 	return (0);
-	(void)mlx;
 }

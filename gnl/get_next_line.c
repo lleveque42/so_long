@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 12:11:09 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/18 18:17:06 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/20 12:00:24 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ char	*str_to_out(char *str)
 		out[i] = str[i];
 		i++;
 	}
+	if (str[i] == '\n')
+		out[i] = '\n';
 	out[i] = '\0';
 	return (out);
 }

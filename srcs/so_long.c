@@ -6,54 +6,67 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:38:34 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/18 14:46:54 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/20 18:29:17 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-// int	ft_exit(t_mlx *mlx)
-// {
-// 	mlx_clear_window(mlx->ptr, mlx->win);
-// 	mlx_destroy_window(mlx->ptr, mlx->win);
-// 	mlx_destroy_display(mlx->ptr);
-// 	free(mlx->ptr);
-// 	exit (0);
-// }
+int	ft_exit(t_mlx *mlx)
+{
+	mlx_clear_window(mlx->ptr, mlx->win);
+	mlx_destroy_window(mlx->ptr, mlx->win);
+	mlx_destroy_display(mlx->ptr);
+	free_map(mlx);
+	free(mlx->ptr);
+	exit (0);
+}
 
-// int	keyhook(int keycode, void *mlx)
-// {
-// 	if (keycode == 65307)
-// 		return (ft_exit(mlx));
-// 	else if (keycode == 119)
-// 		return (move_up(mlx));
-// 	else if (keycode == 115)
-// 		return (move_down(mlx));
-// 	else if (keycode == 97)
-// 		return (move_left(mlx));
-// 	else if (keycode == 100)
-// 		return (move_right(mlx));
-// 	return (0);
-// }
+int	test_xpm_files(void)
+{
+	if (open("sprites/collectibles.xpm", O_RDONLY) <= -1)
+		return (1);
+	else if (open("sprites/ennemies.xpm", O_RDONLY) <= -1)
+		return (1);
+	else if (open("sprites/exit.xpm", O_RDONLY) == -1)
+		return (1);
+	else if (open("sprites/free_space.xpm", O_RDONLY) == -1)
+		return (1);
+	else if (open("sprites/player_01.xpm", O_RDONLY) == -1)
+		return (1);
+	else if (open("sprites/wall.xpm", O_RDONLY) == -1)
+		return (1);
+	return (0);
+}
 
-// int	init_window(t_mlx	*mlx)
-// {
-// 	mlx->ptr = mlx_init();
-// 	mlx->win = mlx_new_window(mlx->ptr, 640, 448, "so_long");
-// 	mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/player_01.xpm", &mlx->sprites.width, &mlx->sprites.width);
-// 	return (1);
-// }
+void	init_mlx(t_mlx *mlx)
+{
+	mlx->sprites.height = 64;
+	mlx->sprites.width = 64;
+	mlx->height = 0;
+	mlx->width = 0;
+	mlx->moves = 0;
+	mlx->letters.c = 0;
+	mlx->letters.p = 0;
+	mlx->letters.e = 0;
+}
 
-int	main(int ac, char **av)
+int	main(int ac, char **av, char **envp)
 {
 	t_mlx	mlx;
 
 	if (ac != 2)
 		return (no_input());
-	parse_map(&mlx, av[1]);
-	// init_window(&mlx);
-	// mlx_put_image_to_window(mlx.ptr, mlx.win, mlx.img, mlx.vector.x, mlx.vector.y);
-	// mlx_key_hook(mlx.win, &keyhook, &mlx);
-	// mlx_hook(mlx.win, 17, 17, &ft_exit, &mlx);
-	// mlx_loop(mlx.ptr);
+	(void)envp;
+	if (envp[0] == NULL)
+		return (0);
+	init_mlx(&mlx);
+	if (test_xpm_files())
+		return (no_xpm());
+	if (parse_map(&mlx, av[1]))
+		return (0);
+	init_window(&mlx);
+	mlx_key_hook(mlx.win, &keyhook, &mlx);
+	mlx_hook(mlx.win, 17, 17, &ft_exit, &mlx);
+	mlx_loop(mlx.ptr);
 }

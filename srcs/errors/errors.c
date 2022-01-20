@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_map_utils.c                                  :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 14:22:35 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/20 14:23:05 by lleveque         ###   ########.fr       */
+/*   Created: 2022/01/20 12:31:45 by lleveque          #+#    #+#             */
+/*   Updated: 2022/01/20 18:17:36 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../so_long.h"
 
-int	get_width(char *s)
+int	no_xpm(void)
 {
-	int	i;
+	printf("Error\n--------------------\nXPM files not found.\n");
+	return (0);
+}
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+int	no_input(void)
+{
+	printf("Error\n--------------\nNo input file.\n");
+	return (0);
+}
+
+int	wrong_input(void)
+{
+	printf("Error\n-----------------\nWrong input file.\n");
+	return (1);
 }
