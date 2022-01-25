@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:38:34 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/20 18:29:17 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/25 14:33:56 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ int	test_xpm_files(void)
 		return (1);
 	else if (open("sprites/player_01.xpm", O_RDONLY) == -1)
 		return (1);
-	else if (open("sprites/wall.xpm", O_RDONLY) == -1)
+	else if (open("sprites/wall_light.xpm", O_RDONLY) == -1)
+		return (1);
+	else if (open("sprites/free_wall.xpm", O_RDONLY) == -1)
 		return (1);
 	return (0);
 }
