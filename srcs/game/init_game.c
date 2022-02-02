@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 15:11:48 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/25 14:50:43 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/02/02 18:52:18 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,26 @@
 
 void	get_image(t_mlx *mlx, char c, int j, int i)
 {
-	if (c == '1' && j % 2 == 0 && (i == 0 || i == mlx->height - 1))
-		mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/wall_light.xpm",
+	if (c == '1' && (i == 0 || i == mlx->height - 1))
+		mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/wall.xpm",
+				&mlx->sprites.width, &mlx->sprites.height);
+	else if (c == '1' && (j == 0 || j == mlx->width - 1))
+		mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/wall.xpm",
 				&mlx->sprites.width, &mlx->sprites.height);
 	else if (c == '1')
-		mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/free_wall.xpm",
+		mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/tree.xpm",
 				&mlx->sprites.width, &mlx->sprites.height);
 	else if (c == '0')
-		mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/free_space.xpm",
+		mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/ground.xpm",
 				&mlx->sprites.width, &mlx->sprites.height);
 	else if (c == 'C')
 		mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/collectibles.xpm",
 				&mlx->sprites.width, &mlx->sprites.height);
 	else if (c == 'P')
-		mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/player_01.xpm",
-				&mlx->sprites.width, &mlx->sprites.height);
-	else if (c == 'X')
-		mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/ennemies.xpm",
+		mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/player.xpm",
 				&mlx->sprites.width, &mlx->sprites.height);
 	else if (c == 'E')
-		mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/exit.xpm",
+		mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/door_closed.xpm",
 				&mlx->sprites.width, &mlx->sprites.height);
 }
 
