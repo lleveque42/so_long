@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 15:11:48 by lleveque          #+#    #+#             */
-/*   Updated: 2022/02/07 09:51:51 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/02/07 11:37:41 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ void	player_position(t_mlx *mlx)
 int	init_window(t_mlx *mlx)
 {
 	mlx->ptr = mlx_init();
+	if (!mlx->ptr)
+		exit (0);
 	mlx->win = mlx_new_window(mlx->ptr, mlx->width * 64, mlx->height * 64,
 			"so_long");
 	player_position(mlx);

@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:38:34 by lleveque          #+#    #+#             */
-/*   Updated: 2022/02/07 10:27:06 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/02/07 11:39:26 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,12 @@ void	init_mlx(t_mlx *mlx)
 	mlx->letters.e = 0;
 }
 
-int	main(int ac, char **av, char **envp)
+int	main(int ac, char **av)
 {
 	t_mlx	mlx;
 
 	if (ac != 2)
 		return (no_input());
-	if (envp[0] == NULL)
-		return (0);
 	init_mlx(&mlx);
 	if (test_xpm_files())
 		return (no_xpm());
