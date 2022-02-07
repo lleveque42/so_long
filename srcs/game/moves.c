@@ -6,11 +6,11 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:33:46 by lleveque          #+#    #+#             */
-/*   Updated: 2022/02/02 18:51:45 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/02/07 09:58:19 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../../so_long.h"
 
 int	check_move(t_mlx *mlx, int dir)
 {
@@ -53,6 +53,7 @@ int	move_up(t_mlx	*mlx)
 		mlx->vector.x, mlx->vector.y);
 	mlx_destroy_image(mlx->ptr, mlx->img);
 	mlx->moves++;
+	open_door(mlx);
 	printf("You've done %d moves.\n", mlx->moves);
 	return (1);
 }
@@ -73,6 +74,7 @@ int	move_down(t_mlx	*mlx)
 		mlx->vector.x, mlx->vector.y);
 	mlx_destroy_image(mlx->ptr, mlx->img);
 	mlx->moves++;
+	open_door(mlx);
 	printf("You've done %d moves.\n", mlx->moves);
 	return (1);
 }
@@ -93,6 +95,7 @@ int	move_left(t_mlx	*mlx)
 		mlx->vector.x, mlx->vector.y);
 	mlx_destroy_image(mlx->ptr, mlx->img);
 	mlx->moves++;
+	open_door(mlx);
 	printf("You've done %d moves.\n", mlx->moves);
 	return (1);
 }
@@ -113,6 +116,7 @@ int	move_right(t_mlx	*mlx)
 		mlx->vector.x, mlx->vector.y);
 	mlx_destroy_image(mlx->ptr, mlx->img);
 	mlx->moves++;
+	open_door(mlx);
 	printf("You've done %d moves.\n", mlx->moves);
 	return (1);
 }

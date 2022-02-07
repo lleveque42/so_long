@@ -6,22 +6,16 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 15:11:48 by lleveque          #+#    #+#             */
-/*   Updated: 2022/02/02 18:52:18 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/02/07 09:51:51 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../so_long.h"
 
-void	get_image(t_mlx *mlx, char c, int j, int i)
+void	get_image(t_mlx *mlx, char c)
 {
-	if (c == '1' && (i == 0 || i == mlx->height - 1))
+	if (c == '1')
 		mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/wall.xpm",
-				&mlx->sprites.width, &mlx->sprites.height);
-	else if (c == '1' && (j == 0 || j == mlx->width - 1))
-		mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/wall.xpm",
-				&mlx->sprites.width, &mlx->sprites.height);
-	else if (c == '1')
-		mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/tree.xpm",
 				&mlx->sprites.width, &mlx->sprites.height);
 	else if (c == '0')
 		mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/ground.xpm",
@@ -48,7 +42,7 @@ void	init_map(t_mlx *mlx)
 		j = 0;
 		while (mlx->map[i][j])
 		{
-			get_image(mlx, mlx->map[i][j], j, i);
+			get_image(mlx, mlx->map[i][j]);
 			mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->img,
 				j * 64, i * 64);
 			mlx_destroy_image(mlx->ptr, mlx->img);

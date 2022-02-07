@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:38:34 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/25 17:52:43 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/02/07 10:27:06 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,34 @@ int	ft_exit(t_mlx *mlx)
 	exit (0);
 }
 
-// int	test_xpm_files(void)
-// {
-// 	if (open("sprites/collectibles.xpm", O_RDONLY) <= -1)
-// 		return (1);
-// 	else if (open("sprites/ennemies.xpm", O_RDONLY) <= -1)
-// 		return (1);
-// 	else if (open("sprites/exit.xpm", O_RDONLY) == -1)
-// 		return (1);
-// 	else if (open("sprites/free_space.xpm", O_RDONLY) == -1)
-// 		return (1);
-// 	else if (open("sprites/player_01.xpm", O_RDONLY) == -1)
-// 		return (1);
-// 	else if (open("sprites/wall_light.xpm", O_RDONLY) == -1)
-// 		return (1);
-// 	else if (open("sprites/free_wall.xpm", O_RDONLY) == -1)
-// 		return (1);
-// 	return (0);
-// }
+int	test_xpm_files(void)
+{
+	if (open("sprites/collectibles.xpm", O_RDONLY) <= -1)
+		return (1);
+	else if (open("sprites/door_closed.xpm", O_RDONLY) <= -1)
+		return (1);
+	else if (open("sprites/door_opened.xpm", O_RDONLY) <= -1)
+		return (1);
+	else if (open("sprites/ground.xpm", O_RDONLY) == -1)
+		return (1);
+	else if (open("sprites/player.xpm", O_RDONLY) == -1)
+		return (1);
+	else if (open("sprites/player_back.xpm", O_RDONLY) == -1)
+		return (1);
+	else if (open("sprites/player_right.xpm", O_RDONLY) == -1)
+		return (1);
+	else if (open("sprites/player_left.xpm", O_RDONLY) == -1)
+		return (1);
+	else if (open("sprites/wall.xpm", O_RDONLY) == -1)
+		return (1);
+	return (0);
+}
 
 void	init_mlx(t_mlx *mlx)
 {
+	mlx->ptr = NULL;
+	mlx->win = NULL;
+	mlx->map = NULL;
 	mlx->sprites.height = 64;
 	mlx->sprites.width = 64;
 	mlx->height = 0;
@@ -59,14 +66,13 @@ int	main(int ac, char **av, char **envp)
 
 	if (ac != 2)
 		return (no_input());
-	(void)envp;
 	if (envp[0] == NULL)
 		return (0);
 	init_mlx(&mlx);
-	// if (test_xpm_files())
-	// 	return (no_xpm());
+	if (test_xpm_files())
+		return (no_xpm());
 	if (parse_map(&mlx, av[1]))
-		return (0);
+		return (free_map(&mlx));
 	init_window(&mlx);
 	mlx_key_hook(mlx.win, &keyhook, &mlx);
 	mlx_hook(mlx.win, 17, 17, &ft_exit, &mlx);

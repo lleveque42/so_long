@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 12:04:41 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/20 18:03:54 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/02/07 10:20:12 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ int		move_down(t_mlx *mlx);
 int		move_left(t_mlx *mlx);
 int		move_up(t_mlx *mlx);
 int		move_right(t_mlx *mlx);
-void	free_map(t_mlx *mlx);
+void	open_door(t_mlx *mlx);
+int		free_map(t_mlx *mlx);
 int		ft_exit(t_mlx *mlx);
 
 #endif

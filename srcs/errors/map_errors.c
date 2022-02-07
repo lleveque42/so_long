@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 12:00:59 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/20 18:17:29 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/02/07 10:08:11 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ only one player (P).\n");
 int	not_surrounded(void)
 {
 	printf("Error\n--------------------------------\nMap must be surrounded by \
-walls.");
+walls.\n");
 	return (1);
 }

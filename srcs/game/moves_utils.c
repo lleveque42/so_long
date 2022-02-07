@@ -6,11 +6,39 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 16:45:59 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/20 17:23:15 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/02/07 10:38:16 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../so_long.h"
+
+void	open_door(t_mlx *mlx)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	if (mlx->letters.c <= 0)
+	{
+		while (mlx->map[i])
+		{
+			j = 0;
+			while (mlx->map[i][j])
+			{
+				if (mlx->map[i][j] == 'E')
+				{
+					mlx->img = mlx_xpm_file_to_image(mlx->ptr, \
+"sprites/door_opened.xpm", &mlx->sprites.width, &mlx->sprites.height);
+					mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->img,
+						j * 64, i * 64);
+					mlx_destroy_image(mlx->ptr, mlx->img);
+				}
+				j++;
+			}
+			i++;
+		}
+	}
+}
 
 int	get_j(t_mlx *mlx, int dir)
 {
