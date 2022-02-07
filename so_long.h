@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 12:04:41 by lleveque          #+#    #+#             */
-/*   Updated: 2022/02/07 10:20:12 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/02/07 14:10:12 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct s_mlx
 	t_sprites	sprites;
 	t_vector	vector;
 	t_check		letters;
+	int			fd[9];
 }	t_mlx;
 
 int		parse_map(t_mlx *mlx, char *input);

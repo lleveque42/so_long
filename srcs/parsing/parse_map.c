@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 17:31:42 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/20 17:46:41 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/02/07 12:06:55 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	get_map_height_and_width(t_mlx *mlx, char *input)
 		free(buff);
 		mlx->height++;
 	}
+	close(fd);
 	if (mlx->height < 3)
 		return (0);
 	return (mlx->height);
@@ -48,6 +49,7 @@ int	parse_input(t_mlx *mlx, char *input)
 		mlx->map[i] = get_next_line(fd);
 		i++;
 	}
+	close(fd);
 	return (0);
 }
 
