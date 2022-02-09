@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 17:31:42 by lleveque          #+#    #+#             */
-/*   Updated: 2022/02/07 12:06:55 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/02/09 13:02:40 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	parse_input(t_mlx *mlx, char *input)
 	i = 0;
 	fd = open(input, O_RDONLY);
 	mlx->map = malloc(sizeof(char *) * (mlx->height + 1));
+	if (!mlx->map)
+		ft_exit(mlx, 0);
 	while (i <= mlx->height)
 	{
 		mlx->map[i] = get_next_line(fd);

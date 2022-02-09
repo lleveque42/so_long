@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:33:46 by lleveque          #+#    #+#             */
-/*   Updated: 2022/02/07 09:58:19 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/02/09 13:19:03 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	check_move(t_mlx *mlx, int dir)
 	else if (mlx->map[i][j] == 'E')
 	{
 		if (mlx->letters.c <= 0)
-			ft_exit(mlx);
+			ft_exit(mlx, 0);
 		return (1);
 	}
 	else
@@ -43,12 +43,16 @@ int	move_up(t_mlx	*mlx)
 		return (0);
 	mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/ground.xpm",
 			&mlx->sprites.width, &mlx->sprites.height);
+	if (!mlx->img)
+		ft_exit(mlx, 0);
 	mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->img,
 		mlx->vector.x, mlx->vector.y);
 	mlx_destroy_image(mlx->ptr, mlx->img);
 	mlx->vector.y -= 64;
 	mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/player_back.xpm",
 			&mlx->sprites.width, &mlx->sprites.height);
+	if (!mlx->img)
+		ft_exit(mlx, 0);
 	mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->img,
 		mlx->vector.x, mlx->vector.y);
 	mlx_destroy_image(mlx->ptr, mlx->img);
@@ -64,12 +68,16 @@ int	move_down(t_mlx	*mlx)
 		return (0);
 	mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/ground.xpm",
 			&mlx->sprites.width, &mlx->sprites.height);
+	if (!mlx->img)
+		ft_exit(mlx, 0);
 	mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->img,
 		mlx->vector.x, mlx->vector.y);
 	mlx_destroy_image(mlx->ptr, mlx->img);
 	mlx->vector.y += 64;
 	mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/player.xpm",
 			&mlx->sprites.width, &mlx->sprites.height);
+	if (!mlx->img)
+		ft_exit(mlx, 0);
 	mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->img,
 		mlx->vector.x, mlx->vector.y);
 	mlx_destroy_image(mlx->ptr, mlx->img);
@@ -85,12 +93,16 @@ int	move_left(t_mlx	*mlx)
 		return (0);
 	mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/ground.xpm",
 			&mlx->sprites.width, &mlx->sprites.height);
+	if (!mlx->img)
+		ft_exit(mlx, 0);
 	mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->img,
 		mlx->vector.x, mlx->vector.y);
 	mlx_destroy_image(mlx->ptr, mlx->img);
 	mlx->vector.x -= 64;
 	mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/player_left.xpm",
 			&mlx->sprites.width, &mlx->sprites.height);
+	if (!mlx->img)
+		ft_exit(mlx, 0);
 	mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->img,
 		mlx->vector.x, mlx->vector.y);
 	mlx_destroy_image(mlx->ptr, mlx->img);
@@ -106,12 +118,16 @@ int	move_right(t_mlx	*mlx)
 		return (0);
 	mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/ground.xpm",
 			&mlx->sprites.width, &mlx->sprites.height);
+	if (!mlx->img)
+		ft_exit(mlx, 0);
 	mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->img,
 		mlx->vector.x, mlx->vector.y);
 	mlx_destroy_image(mlx->ptr, mlx->img);
 	mlx->vector.x += 64;
 	mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/player_right.xpm",
 			&mlx->sprites.width, &mlx->sprites.height);
+	if (!mlx->img)
+		ft_exit(mlx, 0);
 	mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->img,
 		mlx->vector.x, mlx->vector.y);
 	mlx_destroy_image(mlx->ptr, mlx->img);

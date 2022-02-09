@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:38:34 by lleveque          #+#    #+#             */
-/*   Updated: 2022/02/07 13:51:29 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/02/09 12:56:42 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,20 @@ void	init_mlx(t_mlx *mlx)
 	mlx->letters.e = 0;
 }
 
-int	ft_exit(t_mlx *mlx)
+int	ft_exit(t_mlx *mlx, int error)
 {
-	mlx_clear_window(mlx->ptr, mlx->win);
-	mlx_destroy_window(mlx->ptr, mlx->win);
-	mlx_destroy_display(mlx->ptr);
+	if (mlx->ptr && mlx->win)
+		mlx_clear_window(mlx->ptr, mlx->win);
+	if (mlx->ptr && mlx->img)
+		mlx_destroy_window(mlx->ptr, mlx->win);
+	if (mlx->ptr)
+	{
+		mlx_destroy_display(mlx->ptr);
+		free(mlx->ptr);
+	}
 	free_map(mlx);
-	free(mlx->ptr);
+	if (!error)
+		display_went_wrong();
 	exit (0);
 }
 

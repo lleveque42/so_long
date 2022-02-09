@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 15:54:29 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/20 16:24:55 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/02/09 12:58:04 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	keyhook(int keycode, void *mlx)
 {
 	if (keycode == 65307)
-		return (ft_exit(mlx));
+		return (ft_exit(mlx, 1));
 	else if (keycode == 119)
 		return (move_up(mlx));
 	else if (keycode == 115)

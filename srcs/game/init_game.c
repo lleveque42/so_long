@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 15:11:48 by lleveque          #+#    #+#             */
-/*   Updated: 2022/02/07 11:37:41 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/02/09 12:56:31 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	get_image(t_mlx *mlx, char c)
 	else if (c == 'E')
 		mlx->img = mlx_xpm_file_to_image(mlx->ptr, "sprites/door_closed.xpm",
 				&mlx->sprites.width, &mlx->sprites.height);
+	if (!mlx->img)
+		ft_exit(mlx, 0);
 }
 
 void	init_map(t_mlx *mlx)
@@ -78,9 +80,11 @@ int	init_window(t_mlx *mlx)
 {
 	mlx->ptr = mlx_init();
 	if (!mlx->ptr)
-		exit (0);
+		ft_exit(mlx, 0);
 	mlx->win = mlx_new_window(mlx->ptr, mlx->width * 64, mlx->height * 64,
 			"so_long");
+	if (!mlx->win)
+		ft_exit(mlx, 0);
 	player_position(mlx);
 	init_map(mlx);
 	return (1);
