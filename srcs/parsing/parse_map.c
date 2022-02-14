@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 17:31:42 by lleveque          #+#    #+#             */
-/*   Updated: 2022/02/09 13:02:40 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/02/14 14:20:15 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ int	check_map(t_mlx *mlx)
 		previous_width = mlx->width;
 		i++;
 	}
+	if (mlx->height > 21 || mlx->width > 40)
+		return (too_big());
 	return (0);
 }
 

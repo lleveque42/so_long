@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:38:34 by lleveque          #+#    #+#             */
-/*   Updated: 2022/02/09 12:56:42 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/02/14 14:53:16 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,3 @@ int	main(int ac, char **av)
 	mlx_hook(mlx.win, 17, 17, &ft_exit, &mlx);
 	mlx_loop(mlx.ptr);
 }
-
-
-

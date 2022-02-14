@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:33:46 by lleveque          #+#    #+#             */
-/*   Updated: 2022/02/09 13:19:03 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/02/14 14:54:10 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	check_move(t_mlx *mlx, int dir)
 	else if (mlx->map[i][j] == 'E')
 	{
 		if (mlx->letters.c <= 0)
-			ft_exit(mlx, 0);
+			ft_exit(mlx, 1);
 		return (1);
 	}
 	else

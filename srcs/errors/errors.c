@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:31:45 by lleveque          #+#    #+#             */
-/*   Updated: 2022/02/09 12:52:49 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/02/14 14:26:29 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,3 @@ void	display_went_wrong(void)
 	printf("Error\nDisplay went wrong.\n");
 	exit (2);
 }
-

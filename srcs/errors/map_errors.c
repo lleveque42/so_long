@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 12:00:59 by lleveque          #+#    #+#             */
-/*   Updated: 2022/02/07 14:03:00 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/02/14 14:22:33 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,11 @@ one collectibles (C) and only one player (P).\n");
 int	not_surrounded(void)
 {
 	printf("Error\nMap must be surrounded by walls.\n");
+	return (1);
+}
+
+int	too_big(void)
+{
+	printf("Error\nMap is too wide or too high.\n");
 	return (1);
 }

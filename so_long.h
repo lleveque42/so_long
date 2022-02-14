@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 12:04:41 by lleveque          #+#    #+#             */
-/*   Updated: 2022/02/09 12:52:33 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/02/14 14:22:54 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int		not_valid_map(void);
 int		not_rectangular(void);
 int		not_surrounded(void);
 int		not_good_char(void);
+int		too_big(void);
 void	display_went_wrong(void);
 int		get_width(char *s);
 int		check_input(char *input);
