@@ -32,3 +32,16 @@ Finally:
 
     ./so_long map.ber
     
+It will create a new window where you'll be able to play the game.
+
+The W, A, S, and D keys or arrows can be used to move the character. You can go up, down, left and right. Your number of movements is displayed in your terminal.
+
+Pressing ESC or clicking the cross on the window's frame will close the game.
+
+You can design your own maps by modifying map.ber or creating a new .ber file. The map can be composed of only these 5 characters:  
+0 for an empty space,
+
+1 for a wall,
+C for a collectible,
+E for a map exit,
+P for the player’s starting position.
