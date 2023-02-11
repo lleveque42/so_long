@@ -13,8 +13,12 @@ The game is about a character that needs to collect all the collectibles on the 
     sudo apt-get install libxext-dev
     sudo apt-get install zlib1g-dev
 
+---
+
 ### My grade :mortar_board:
 [![lleveque's 42 so_long Score](https://badge42.vercel.app/api/v2/clc6bxaur00060fmon220zhly/project/2451984)](https://github.com/JaeSeoKim/badge42)
+
+---
 
 ### Usage :desktop_computer:
 
